@@ -18,15 +18,40 @@ const birthdaySong = document.getElementById("birthdaySong");
 clockSound.volume = 0.4;
 clockSound.play();
 
+function levenshteinDistance(a, b) {
+  const dp = Array.from({ length: a.length + 1 }, () => Array(b.length + 1).fill(0));
+
+  for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+  for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      if (a[i - 1] === b[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1];
+      } else {
+        dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+      }
+    }
+  }
+
+  return dp[a.length][b.length];
+}
+
+function getSimilarityPercentage(input, correct) {
+  const distance = levenshteinDistance(input, correct);
+  const maxLen = Math.max(input.length, correct.length);
+  const similarity = ((1 - distance / maxLen) * 100).toFixed(1);
+  return similarity;
+}
+
 function checkPassword() {
-  const input = document
-    .getElementById("secretInput")
-    .value.trim()
-    .toLowerCase();
+  const input = document.getElementById("secretInput").value.trim().toLowerCase();
   const cardSection = document.getElementById("cardSection");
   const errorMsg = document.getElementById("errorMsg");
 
-  if (input === "iloveyoubujji") {
+  const correctPassword = "iloveyoubujji";
+
+  if (input === correctPassword) {
     clockSound.pause();
     birthdaySong.play();
     cardSection.style.display = "block";
@@ -34,9 +59,11 @@ function checkPassword() {
     showNextReason();
   } else {
     errorSound.play();
-    errorMsg.textContent = "Oops! That’s not the right word. Try again!";
+    const similarity = getSimilarityPercentage(input, correctPassword);
+    errorMsg.textContent = `You're ${similarity}% close to the correct word. Keep trying!`;
   }
 }
+
 
 function showNextReason() {
   const reasonText = document.getElementById("reasonText");
