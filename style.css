@@ -1,0 +1,92 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff0f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card-container {
+  display: none;
+  margin-top: 350px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.password-form {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.password-form input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.password-form button {
+  padding: 10px 20px;
+  background-color: #db7093;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.password-form button:hover {
+  background-color: #c55f83;
+}
+
+.countdown {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  padding: 12px;
+  background-color: #ffe6f0;
+  color: #db7093;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+img.card-img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.reasons-box {
+  margin-top: 20px;
+  background-color: #ffe6f0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reason-text {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.heart-button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #db7093;
+  cursor: pointer;
+}
+
+.heart-button:hover {
+  transform: scale(1.2);
+}

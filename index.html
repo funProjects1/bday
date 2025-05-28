@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Bunny</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio id="clockSound" loop src="./assests/clock.wav"></audio>
+    <audio id="errorSound" src="./assests/error.wav"></audio>
+
+    <audio id="birthdaySong" src="./assests/birthday.mp3"></audio>
+
+    <div class="password-form">
+      <h2>🎉 Enter the secret word to unlock Your Birthday Gift 🎉</h2>
+      <p class="countdown" id="countdownTimer">Loading countdown...</p>
+      <input
+        type="text"
+        id="secretInput"
+        placeholder="Enter the magic word..."
+      />
+      <button onclick="checkPassword()">Open Card</button>
+      <p id="errorMsg" style="color: red; margin-top: 10px"></p>
+    </div>
+
+    <div class="card-container" id="cardSection">
+      <img
+        class="card-img"
+        src="./assests/gift.png"
+        alt="Happy Birthday Bunny Card"
+      />
+      <div class="reasons-box">
+        <p class="reason-text" id="reasonText">Loading reason...</p>
+        <button class="heart-button" onclick="showNextReason()">❤️</button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
