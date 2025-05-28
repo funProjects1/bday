@@ -54,7 +54,7 @@ function checkPassword() {
   const cardSection = document.getElementById("cardSection");
   const errorMsg = document.getElementById("errorMsg");
 
-  const correctPassword = "iloveyoubujji";
+  const correctPassword = "iloveyoubujjigaru";
 
   if (input === correctPassword) {
     clockSound.pause();
@@ -65,7 +65,14 @@ function checkPassword() {
   } else {
     errorSound.play();
     const { correctPlace, wrongPlace } = analyzeGuess(input, correctPassword);
-    errorMsg.textContent = `🧐 You got ${correctPlace} letters in the right place and ${wrongPlace} letters right but in the wrong place.`;
+
+    // Similarity percentage based on correct places
+    const similarity = Math.floor((correctPlace / correctPassword.length) * 100);
+
+    errorMsg.innerHTML = `
+      <strong>Hint 1:</strong> 🔍 You're ${similarity}% close to the correct answer.<br>
+      <strong>Hint 2:</strong> ✅ ${correctPlace} letters are in the right place, 🔁 ${wrongPlace} letters are correct but in the wrong place.
+    `;
   }
 }
 
