@@ -71,6 +71,7 @@ img.card-img {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px;
 }
 
 .reason-text {
