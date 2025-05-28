@@ -57,7 +57,7 @@ function checkPassword() {
   const cardSection = document.getElementById("cardSection");
   const errorMsg = document.getElementById("errorMsg");
 
-  const correctPassword = "iloveyoubujji";
+  const correctPassword = "iloveyoubujjigaru";
 
   if (input === correctPassword) {
     clockSound.pause();
